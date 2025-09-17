@@ -53,7 +53,7 @@ export default function Lab1() {
         <ul id="wd-my-books">
           <li>Dune</li>
           <li>Lord of the Rings</li>
-          <li>Ender's Game</li>
+          <li>Ender Game</li>
           <li>Red Mars</li>
           <li>The Forever War</li>
         </ul>
@@ -120,7 +120,7 @@ export default function Lab1() {
             </tr>
             <tr>
               <td>Q8</td>
-              <td>API's</td>
+              <td>APIs</td>
               <td>3/21/21</td>
               <td>99</td>
             </tr>
