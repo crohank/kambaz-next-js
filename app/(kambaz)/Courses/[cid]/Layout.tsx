@@ -37,7 +37,7 @@ export default async function CoursesLayout(
     params,
   }: Readonly<{
     children: ReactNode;
-    params: { cid: string }; // <-- fix here
+    params: { cid: string }; 
   }>
 ) {
   const { cid } = params;
