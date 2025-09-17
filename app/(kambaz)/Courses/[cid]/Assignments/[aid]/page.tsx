@@ -7,6 +7,8 @@ export default function AssignmentEditor() {
       <br />
       <textarea
         id="wd-description"
+        rows={10}
+        cols={50}
         defaultValue="The assignment is available online Submit a link to the landing page of"
       />
       <br />
@@ -99,33 +101,33 @@ export default function AssignmentEditor() {
           <tr>
             <td align="center" valign="top"></td>
             <td>
-                <table>
-                    <tbody>
-              <tr>
-                <td>
-                  <label htmlFor="wd-available-from">Available from</label>
-                </td>
-                <td>
-                  <label htmlFor="wd-available-until">Until</label>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <input
-                    type="date"
-                    id="wd-available-from"
-                    defaultValue="2025-09-05"
-                  />
-                </td>
-                <td>
-                  <input
-                    type="date"
-                    id="wd-available-until"
-                    defaultValue="2025-09-17"
-                  />
-                </td>
-              </tr>
-              </tbody>
+              <table>
+                <tbody>
+                  <tr>
+                    <td>
+                      <label htmlFor="wd-available-from">Available from</label>
+                    </td>
+                    <td>
+                      <label htmlFor="wd-available-until">Until</label>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <input
+                        type="date"
+                        id="wd-available-from"
+                        defaultValue="2025-09-05"
+                      />
+                    </td>
+                    <td>
+                      <input
+                        type="date"
+                        id="wd-available-until"
+                        defaultValue="2025-09-17"
+                      />
+                    </td>
+                  </tr>
+                </tbody>
               </table>
             </td>
           </tr>
