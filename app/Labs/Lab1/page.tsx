@@ -337,7 +337,7 @@ export default function Lab1() {
         <h4>Github</h4>
         <p>
           Please{" "}
-          <a href="https://github.com/crohank?tab=repositories" id="wd-github">
+          <a href="https://github.com/crohank/kambaz-next-js" id="wd-github">
             click here
           </a>
           to open github link
