@@ -3,8 +3,12 @@ import Image from "next/image";
 export default function Lab1() {
   return (
     <div id="wd-lab1">
-      <h2>Lab 1</h2>
-      <h3>HTML Examples</h3>
+      <h1>Lab 1</h1>
+      <h2>HTML Examples</h2>
+      <h2>Student Detials</h2>
+      <h3>Name: Rohan Kumar Chitra</h3>
+      <h3>Section: 05</h3>
+      <h3>GitHub Source code: <a href="https://github.com/crohank/kambaz-next-js/">Click Here</a></h3>
       <div id="wd-h-tag">
         <h4>Heading Tags</h4>
         Testing different HTML formating Tags
