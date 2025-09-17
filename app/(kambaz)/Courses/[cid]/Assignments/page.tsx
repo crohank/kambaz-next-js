@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function Assignments() {
   return (
     <div id="wd-assignments">
@@ -9,45 +11,43 @@ export default function Assignments() {
         ASSIGNMENTS 40% of Total <button>+</button> </h3>
       <ul id="wd-assignment-list">
         <li className="wd-assignment-list-item">
-          <a href="/Courses/1234/Assignments/123"
-             className="wd-assignment-link" >
+          <Link href="/Courses/1234/Assignments/123"
+                className="wd-assignment-link" >
             A1 - ENV + HTML
-          </a>
+          </Link>
           <p>
             -Set up the Kambaz project. <br/>
             -Implement the basic components of the kambaz application.
             </p> </li>
         <li className="wd-assignment-list-item">
-          <a href="/Courses/1234/Assignments/124"
-             className="wd-assignment-link" >
+          <Link href="/Courses/1234/Assignments/124"
+                className="wd-assignment-link" >
             A2 - CSS
-          </a> 
+          </Link> 
           <p>
             -Adding styling to the kambaz application using CSS <br/>
-            -Update the 
+            -Update the components built in first Assignment 1
             </p>
         </li>
         <li className="wd-assignment-list-item">
-          <a href="/Courses/1234/Assignments/125"
-             className="wd-assignment-link" >
+          <Link href="/Courses/1234/Assignments/125"
+                className="wd-assignment-link" >
             A3 - API
-          </a> 
+          </Link> 
           <p>
-            -Implement a backend database <br/>
-            -sfgsfg
+            -Implement API to pull course data
             </p>
         </li>
         <li className="wd-assignment-list-item">
-          <a href="/Courses/1234/Assignments/126"
-             className="wd-assignment-link" >
+          <Link href="/Courses/1234/Assignments/126"
+                className="wd-assignment-link" >
             A4 - DataBase
-          </a>
+          </Link>
           <p>
             -Implement a backend database <br/>
-            -sfgsfg
+            -Update the code to connect to the database
             </p>
         </li>
       </ul>
     </div>
-);}
-
+); }
