@@ -1,6 +1,6 @@
 export default function People() {
   return (
     <div>
-      <h2>People</h2>
+      <h2>Peoples</h2>
     </div>
 );}
