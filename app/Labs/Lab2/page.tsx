@@ -1,3 +1,4 @@
+import { Container } from "react-bootstrap";
 import BackgroundColors from "./BackgroundColors";
 import Borders from "./Borders";
 import Corners from "./Corners";
@@ -12,9 +13,17 @@ import Padding from "./Padding";
 import Positions from "./Positions";
 import ReactIconsSampler from "./ReactIcons";
 import Zindex from "./Zindex";
+import "bootstrap/dist/css/bootstrap.min.css";
+import BootstrapGrids from "./BootstrapGrids";
+import ScreenSizeLabel from "./ScreenSizeLabel";
+import BootstrapTables from "./BootstrapTables";
+import { RiBootstrapLine } from "react-icons/ri";
+import BootstrapLists from "./BootstrapLists";
+import BootstrapForms from "./BootstrapForms";
+import BootstrapNavigation from "./BootstrapNavigation";
 export default function Lab2() {
   return (
-    <div id="wd-lab2">
+    <Container id="wd-lab2">
       <h2>Lab 2 - Cascading Style Sheets</h2>
       <h3>Styling with the STYLE attribute</h3>…
       <div id="wd-css-id-selectors">
@@ -82,26 +91,44 @@ export default function Lab2() {
         <Corners />
       </div>
       <div>
-        <Dimensions/>
+        <Dimensions />
       </div>
       <div>
-        <Positions/>
+        <Positions />
       </div>
       <div>
-        <Zindex/>
+        <Zindex />
       </div>
       <div>
-        <Float/>
+        <Float />
       </div>
       <div>
-        <GridLayout/>
+        <GridLayout />
       </div>
       <div>
-        <Flex/>
+        <Flex />
       </div>
       <div>
-        <ReactIconsSampler/>
+        <ReactIconsSampler />
       </div>
-    </div>
+      <div>
+        <BootstrapGrids />
+      </div>
+      <div>
+        <ScreenSizeLabel />
+      </div>
+      <div>
+        <BootstrapTables />
+      </div>
+      <div>
+        <BootstrapLists />
+      </div>
+      <div>
+        <BootstrapForms/>
+      </div>
+      <div>
+        <BootstrapNavigation/>
+      </div>
+    </Container>
   );
 }
