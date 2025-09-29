@@ -2,12 +2,15 @@ import BackgroundColors from "./BackgroundColors";
 import Borders from "./Borders";
 import Corners from "./Corners";
 import Dimensions from "./Dimensions";
+import Flex from "./Flex";
 import Float from "./Float";
 import ForegroundColors from "./ForegroundColors";
+import GridLayout from "./GridLayout";
 import "./index.css";
 import Margins from "./Margins";
 import Padding from "./Padding";
 import Positions from "./Positions";
+import ReactIconsSampler from "./ReactIcons";
 import Zindex from "./Zindex";
 export default function Lab2() {
   return (
@@ -89,6 +92,15 @@ export default function Lab2() {
       </div>
       <div>
         <Float/>
+      </div>
+      <div>
+        <GridLayout/>
+      </div>
+      <div>
+        <Flex/>
+      </div>
+      <div>
+        <ReactIconsSampler/>
       </div>
     </div>
   );
