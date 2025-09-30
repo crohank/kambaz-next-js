@@ -4,12 +4,11 @@ import { LiaBookSolid, LiaCogSolid } from "react-icons/lia";
 import { FaInbox, FaRegCircleUser } from "react-icons/fa6";
 import { ListGroup, ListGroupItem } from "react-bootstrap";
 import Link from "next/link";
-import Image from "next/image";
 export default function KambazNavigation() {
   return (
     <ListGroup
-      className="rounded-0 position-fixed bottom-0 top-0 d-none d-md-block bg-black z-2"
-      style={{ width: 120 }}
+       className="rounded-0 position-fixed bottom-0 top-0 d-none d-md-block bg-black z-2"
+       style={{ width: 110 }}
       id="wd-kambaz-navigation"
     >
       <ListGroupItem
@@ -19,31 +18,81 @@ export default function KambazNavigation() {
         href="https://www.northeastern.edu/"
         id="wd-neu-link"
       >
-        <Image src="/images/NEU.png" width="75" height={75} alt="Northeastern University" />
+        <img src="/images/NEU.png" width="75px" alt="Northeastern University" />
       </ListGroupItem>
+      <br />
       <ListGroupItem className="border-0 bg-black text-center">
         <Link
           href="/Account"
           id="wd-account-link"
           className="text-white text-decoration-none"
         >
-          <FaRegCircleUser className="fs-1 text-white" />
+          <FaRegCircleUser className="fs-1 text-white text-center" />
+          <br />
           Account
         </Link>
       </ListGroupItem>
-
+      <br />
+      <ListGroupItem className="border-0 bg-black text-center">
+        <Link
+          href="/Dashboard"
+          id="wd-dashboard-link"
+          className="text-danger text-decoration-none"
+        >
+          <AiOutlineDashboard className="fs-1 text-danger text" />
+          <br />
+          Dashboard
+        </Link>
+      </ListGroupItem>
+      <br />
       <ListGroupItem className="border-0 bg-white text-center">
         <Link
           href="/Dashboard"
           id="wd-dashboard-link"
           className="text-danger text-decoration-none"
         >
-          <AiOutlineDashboard className="fs-1 text-danger" />
-          Dashboard
+          <LiaBookSolid className="fs-1 text-danger" />
+          <br />
+          Courses
         </Link>
       </ListGroupItem>
-
-      {/* complete styling the rest of the links */}
+      <br/>
+      <ListGroupItem className="border-0 bg-white text-center">
+        <Link
+          href="/Calender"
+          id="wd-dashboard-link"
+          className="text-danger text-decoration-none"
+        >
+          <IoCalendarOutline className="fs-1 text-danger" />
+          <br />
+          Calendar
+        </Link>
+      </ListGroupItem>
+      <br/>
+      <ListGroupItem className="border-0 bg-white text-center">
+        <Link
+          href="/Inbox"
+          id="wd-dashboard-link"
+          className="text-danger text-decoration-none"
+        >
+          <FaInbox className="fs-1 text-danger" />
+          <br />
+          Inbox
+        </Link>
+      </ListGroupItem>
+      <br/>
+      <ListGroupItem className="border-0 bg-white text-center">
+        <Link
+          href="/Labs"
+          id="wd-dashboard-link"
+          className="text-danger text-decoration-none"
+        >
+          <LiaCogSolid className="fs-1 text-danger" />
+          <br />
+          Labs
+        </Link>
+      </ListGroupItem>
+      <br />
     </ListGroup>
   );
 }

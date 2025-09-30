@@ -8,7 +8,10 @@ export default function Lab1() {
       <h2>Student Detials</h2>
       <h3>Name: Rohan Kumar Chitra</h3>
       <h3>Section: 05</h3>
-      <h3>GitHub Source code: <a href="https://github.com/crohank/kambaz-next-js/">Click Here</a></h3>
+      <h3>
+        GitHub Source code:{" "}
+        <a href="https://github.com/crohank/kambaz-next-js/">Click Here</a>
+      </h3>
       <div id="wd-h-tag">
         <h4>Heading Tags</h4>
         Testing different HTML formating Tags
@@ -158,18 +161,18 @@ export default function Lab1() {
           src="https://www.staradvertiser.com/wp-content/uploads/2021/08/web1_Starship-gap2.jpg"
           alt="Starship"
           width={400}
-          height={200} 
+          height={200}
         />
         <br />
         Loading a local image:
         <br />
         <Image
-  id="wd-teslabot"
-  src="/images/teslabot.jpg"
-  alt="Tesla Bot"
-  width={200}
-  height={200} 
-/>
+          id="wd-teslabot"
+          src="/images/teslabot.jpg"
+          alt="Tesla Bot"
+          width={200}
+          height={200}
+        />
       </div>
       <div id="wd-forms">
         <h4>Form Elements</h4>

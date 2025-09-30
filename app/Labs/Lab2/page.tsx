@@ -17,7 +17,6 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import BootstrapGrids from "./BootstrapGrids";
 import ScreenSizeLabel from "./ScreenSizeLabel";
 import BootstrapTables from "./BootstrapTables";
-import { RiBootstrapLine } from "react-icons/ri";
 import BootstrapLists from "./BootstrapLists";
 import BootstrapForms from "./BootstrapForms";
 import BootstrapNavigation from "./BootstrapNavigation";
