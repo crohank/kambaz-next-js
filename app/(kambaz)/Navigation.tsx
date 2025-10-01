@@ -21,13 +21,13 @@ export default function KambazNavigation() {
         <img src="/images/NEU.png" width="75px" alt="Northeastern University" />
       </ListGroupItem>
       <br />
-      <ListGroupItem className="border-0 bg-black text-center">
+      <ListGroupItem className="border-0 bg-white text-center">
         <Link
           href="/Account"
           id="wd-account-link"
-          className="text-white text-decoration-none"
+          className="text-danger text-decoration-none"
         >
-          <FaRegCircleUser className="fs-1 text-white text-center" />
+          <FaRegCircleUser className="fs-1 text-danger text-center" />
           <br />
           Account
         </Link>
