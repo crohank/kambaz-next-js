@@ -2,10 +2,13 @@ import { MdDoNotDisturbAlt } from "react-icons/md";
 import { FaCheckCircle } from "react-icons/fa";
 import { BiImport } from "react-icons/bi";
 import { LiaFileImportSolid } from "react-icons/lia";
+import { MdOutlineAddHomeWork } from "react-icons/md";
 import { Button } from "react-bootstrap";
-{
-  /* Find more icons */
-}
+import { GrAnnounce } from "react-icons/gr";
+import { MdOutlineClass } from "react-icons/md";
+import { TbDeviceAnalytics } from "react-icons/tb";
+import { MdNotificationsNone } from "react-icons/md";
+
 export default function CourseStatus() {
   return (
     <div id="wd-course-status" style={{ width: "350px" }}>
@@ -29,7 +32,21 @@ export default function CourseStatus() {
       <Button variant="secondary" size="lg" className="w-100 mt-1 text-start">
         <LiaFileImportSolid className="me-2 fs-5" /> Import from Commons{" "}
       </Button>
-      {/* Complete the rest of the buttons */}
+      <Button variant="secondary" size="lg" className="w-100 mt-1 text-start">
+        <MdOutlineAddHomeWork className="me-2 fs-5" /> Choose Home Page{" "}
+      </Button>
+      <Button variant="secondary" size="lg" className="w-100 mt-1 text-start">
+        <MdOutlineClass className="me-2 fs-5" /> View Course Screen{" "}
+      </Button>
+      <Button variant="secondary" size="lg" className="w-100 mt-1 text-start">
+        <GrAnnounce  className="me-2 fs-5" /> New Announcement{" "}
+      </Button>
+      <Button variant="secondary" size="lg" className="w-100 mt-1 text-start">
+        <TbDeviceAnalytics className="me-2 fs-5" /> New Analytics{" "}
+      </Button>
+      <Button variant="secondary" size="lg" className="w-100 mt-1 text-start">
+        <MdNotificationsNone className="me-2 fs-5" /> View Course Notification{" "}
+      </Button>
     </div>
   );
 }

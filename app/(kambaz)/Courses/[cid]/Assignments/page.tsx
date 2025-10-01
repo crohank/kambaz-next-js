@@ -1,53 +1,45 @@
-import Link from "next/link";
+import "bootstrap/dist/css/bootstrap.min.css";
+import AssignmentControls from "./AssignmentControls";
+import { ListGroup, ListGroupItem } from "react-bootstrap";
+import { BsGripVertical } from "react-icons/bs";
+import LessonControlButtons from "../Modules/LessonControlButtons";
+import ModuleControlButtons from "../Modules/ModuleControlButtons";
+import { IoMdArrowDropdown } from "react-icons/io";
+import { FaEllipsis, FaPlus } from "react-icons/fa6";
+import { FaEllipsisV } from "react-icons/fa";
 
 export default function Assignments() {
   return (
     <div id="wd-assignments">
-      <input placeholder="Search for Assignments"
-             id="wd-search-assignment" />
-      <button id="wd-add-assignment-group">+ Group</button>
-      <button id="wd-add-assignment">+ Assignment</button>
-      <h3 id="wd-assignments-title">
-        ASSIGNMENTS 40% of Total <button>+</button> </h3>
-      <ul id="wd-assignment-list">
-        <li className="wd-assignment-list-item">
-          <Link href="/Courses/1234/Assignments/123"
-                className="wd-assignment-link" >
-            A1 - ENV + HTML
-          </Link>
-          <p>
-            -Set up the Kambaz project. <br/>
-            -Implement the basic components of the kambaz application.
-            </p> </li>
-        <li className="wd-assignment-list-item">
-          <Link href="/Courses/1234/Assignments/124"
-                className="wd-assignment-link" >
-            A2 - CSS
-          </Link> 
-          <p>
-            -Adding styling to the kambaz application using CSS <br/>
-            -Update the components built in first Assignment 1
-            </p>
-        </li>
-        <li className="wd-assignment-list-item">
-          <Link href="/Courses/1234/Assignments/125"
-                className="wd-assignment-link" >
-            A3 - API
-          </Link> 
-          <p>
-            -Implement API to pull course data
-            </p>
-        </li>
-        <li className="wd-assignment-list-item">
-          <Link href="/Courses/1234/Assignments/126"
-                className="wd-assignment-link" >
-            A4 - DataBase
-          </Link>
-          <p>
-            -Implement a backend database <br/>
-            -Update the code to connect to the database
-            </p>
-        </li>
-      </ul>
+      <AssignmentControls />
+
+      <ListGroup className="rounded-0 mt-4">
+              <ListGroupItem className="p-0 mb-5 fs-5 border-secondary">
+                <div className="wd-title p-3 ps-2 bg-secondary d-flex align-items-center">
+                  <BsGripVertical className="me-2 fs-3" />
+                  <IoMdArrowDropdown className="me-2"/>
+                  <strong>ASSIGNMENTS</strong>
+                  <span className="ms-auto">
+                    <span className="border border-dark rounded-pill px-2 py-1 me-2">
+                      40% of Total
+                    </span>
+                  </span>
+                  <FaPlus className="me-2"/>
+                  <FaEllipsisV/>
+                </div>
+                
+                <ListGroup className="wd-lessons rounded-0">
+                  <ListGroupItem className="wd-lesson p-3 ps-1">
+                    <BsGripVertical className="me-2 fs-3" /> LEARNING OBJECTIVES{" "}
+                    <LessonControlButtons />
+                  </ListGroupItem>
+                  <ListGroupItem className="wd-lesson p-3 ps-1">
+                    <BsGripVertical className="me-2 fs-3" /> Introduction to the
+                    course <LessonControlButtons />
+                  </ListGroupItem>
+                </ListGroup>
+              </ListGroupItem>
+            </ListGroup>
     </div>
-); }
+  );
+}

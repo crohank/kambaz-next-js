@@ -48,7 +48,7 @@ export default function KambazNavigation() {
       <ListGroupItem className="border-0 bg-white text-center">
         <Link
           href="/Dashboard"
-          id="wd-dashboard-link"
+          id="wd-courses-link"
           className="text-danger text-decoration-none"
         >
           <LiaBookSolid className="fs-1 text-danger" />
@@ -59,8 +59,8 @@ export default function KambazNavigation() {
       <br/>
       <ListGroupItem className="border-0 bg-white text-center">
         <Link
-          href="/Calender"
-          id="wd-dashboard-link"
+          href="/Calendar"
+          id="wd-calendar-link"
           className="text-danger text-decoration-none"
         >
           <IoCalendarOutline className="fs-1 text-danger" />
@@ -72,7 +72,7 @@ export default function KambazNavigation() {
       <ListGroupItem className="border-0 bg-white text-center">
         <Link
           href="/Inbox"
-          id="wd-dashboard-link"
+          id="wd-inbox-link"
           className="text-danger text-decoration-none"
         >
           <FaInbox className="fs-1 text-danger" />
@@ -84,7 +84,7 @@ export default function KambazNavigation() {
       <ListGroupItem className="border-0 bg-white text-center">
         <Link
           href="/Labs"
-          id="wd-dashboard-link"
+          id="wd-labs-link"
           className="text-danger text-decoration-none"
         >
           <LiaCogSolid className="fs-1 text-danger" />
