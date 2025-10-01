@@ -45,7 +45,7 @@ export default function KambazNavigation() {
         </Link>
       </ListGroupItem>
       <br />
-      <ListGroupItem className="border-0 bg-white text-center">
+      <ListGroupItem className="border-0 bg-black text-center">
         <Link
           href="/Dashboard"
           id="wd-courses-link"
@@ -57,7 +57,7 @@ export default function KambazNavigation() {
         </Link>
       </ListGroupItem>
       <br/>
-      <ListGroupItem className="border-0 bg-white text-center">
+      <ListGroupItem className="border-0 bg-black text-center">
         <Link
           href="/Calendar"
           id="wd-calendar-link"
@@ -69,7 +69,7 @@ export default function KambazNavigation() {
         </Link>
       </ListGroupItem>
       <br/>
-      <ListGroupItem className="border-0 bg-white text-center">
+      <ListGroupItem className="border-0 bg-black text-center">
         <Link
           href="/Inbox"
           id="wd-inbox-link"
@@ -81,7 +81,7 @@ export default function KambazNavigation() {
         </Link>
       </ListGroupItem>
       <br/>
-      <ListGroupItem className="border-0 bg-white text-center">
+      <ListGroupItem className="border-0 bg-black text-center">
         <Link
           href="/Labs"
           id="wd-labs-link"

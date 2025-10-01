@@ -1,12 +1,12 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import AssignmentControls from "./AssignmentControls";
 import { ListGroup, ListGroupItem } from "react-bootstrap";
-import { BsGripVertical } from "react-icons/bs";
-import LessonControlButtons from "../Modules/LessonControlButtons";
-import ModuleControlButtons from "../Modules/ModuleControlButtons";
+import { BsFileText, BsGripVertical } from "react-icons/bs";
 import { IoMdArrowDropdown } from "react-icons/io";
-import { FaEllipsis, FaPlus } from "react-icons/fa6";
+import {FaPlus } from "react-icons/fa6";
 import { FaEllipsisV } from "react-icons/fa";
+import Link from "next/link";
+import AssignmentControlButtons from "./AssignmentControlButtons";
 
 export default function Assignments() {
   return (
@@ -27,17 +27,103 @@ export default function Assignments() {
                   <FaPlus className="me-2"/>
                   <FaEllipsisV/>
                 </div>
-                
-                <ListGroup className="wd-lessons rounded-0">
-                  <ListGroupItem className="wd-lesson p-3 ps-1">
-                    <BsGripVertical className="me-2 fs-3" /> LEARNING OBJECTIVES{" "}
-                    <LessonControlButtons />
-                  </ListGroupItem>
-                  <ListGroupItem className="wd-lesson p-3 ps-1">
-                    <BsGripVertical className="me-2 fs-3" /> Introduction to the
-                    course <LessonControlButtons />
+
+                <ListGroup className="rounded-0">
+                  <ListGroupItem className="p-3 ps-1 d-flex align-items-start">
+                    <BsGripVertical className="me-2 fs-3"/>
+                    <BsFileText className="text-success me-3 fs-4"/>
+                    <div className="flex-grow-1">
+                      <Link href="/Courses/1234/Assignments/123" className="text-dark fw-bold">
+                      A1
+                      </Link>
+                      <div>
+                        <span className="fw-bold text-danger">Multiple Modules</span><span className="fw-bold">| Not available until</span> Sep 20 at 12:00am|
+                      </div>
+                      <div>
+                        <span className="fw-bold">Due</span> Sep 30 at 11:59 | 200 pts
+                      </div>
+                    </div>
+                    <AssignmentControlButtons/>
                   </ListGroupItem>
                 </ListGroup>
+
+                <ListGroup className="rounded-0">
+                  <ListGroupItem className="p-3 ps-1 d-flex align-items-start">
+                    <BsGripVertical className="me-2 fs-3"/>
+                    <BsFileText className="text-success me-3 fs-4"/>
+                    <div className="flex-grow-1">
+                      <Link href="/Courses/1234/Assignments/123" className="text-dark fw-bold">
+                      A2
+                      </Link>
+                      <div>
+                        <span className="fw-bold text-danger">Multiple Modules</span><span className="fw-bold">| Not available until</span> Oct 10 at 12:00am|
+                      </div>
+                      <div>
+                        <span className="fw-bold">Due</span> Oct 18 at 11:59 | 150 pts
+                      </div>
+                    </div>
+                    <AssignmentControlButtons/>
+                  </ListGroupItem>
+                </ListGroup>
+
+
+                <ListGroup className="rounded-0">
+                  <ListGroupItem className="p-3 ps-1 d-flex align-items-start">
+                    <BsGripVertical className="me-2 fs-3"/>
+                    <BsFileText className="text-success me-3 fs-4"/>
+                    <div className="flex-grow-1">
+                      <Link href="/Courses/1234/Assignments/123" className="text-dark fw-bold">
+                      A3
+                      </Link>
+                      <div>
+                        <span className="fw-bold text-danger">Multiple Modules</span><span className="fw-bold">| Not available until</span> Oct 20 at 12:00am|
+                      </div>
+                      <div>
+                        <span className="fw-bold">Due</span> Oct 28 at 11:59 | 100 pts
+                      </div>
+                    </div>
+                    <AssignmentControlButtons/>
+                  </ListGroupItem>
+                </ListGroup>
+
+                <ListGroup className="rounded-0">
+                  <ListGroupItem className="p-3 ps-1 d-flex align-items-start">
+                    <BsGripVertical className="me-2 fs-3"/>
+                    <BsFileText className="text-success me-3 fs-4"/>
+                    <div className="flex-grow-1">
+                      <Link href="/Courses/1234/Assignments/123" className="text-dark fw-bold">
+                      A4
+                      </Link>
+                      <div>
+                        <span className="fw-bold text-danger">Multiple Modules</span><span className="fw-bold">| Not available until</span> Oct 30 at 12:00am|
+                      </div>
+                      <div>
+                        <span className="fw-bold">Due</span> Nov 08 at 11:59 | 100 pts
+                      </div>
+                    </div>
+                    <AssignmentControlButtons/>
+                  </ListGroupItem>
+                </ListGroup>
+
+                <ListGroup className="rounded-0">
+                  <ListGroupItem className="p-3 ps-1 d-flex align-items-start">
+                    <BsGripVertical className="me-2 fs-3"/>
+                    <BsFileText className="text-success me-3 fs-4"/>
+                    <div className="flex-grow-1">
+                      <Link href="/Courses/1234/Assignments/123" className="text-dark fw-bold">
+                      A5
+                      </Link>
+                      <div>
+                        <span className="fw-bold text-danger">Multiple Modules</span><span className="fw-bold">| Not available until</span> Nov 10 at 12:00am|
+                      </div>
+                      <div>
+                        <span className="fw-bold">Due</span> Nov 18 at 11:59 | 100 pts
+                      </div>
+                    </div>
+                    <AssignmentControlButtons/>
+                  </ListGroupItem>
+                </ListGroup>
+
               </ListGroupItem>
             </ListGroup>
     </div>

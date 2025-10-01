@@ -7,7 +7,7 @@ export default function CourseNavigation() {
   const pathname = usePathname();
 
   return (
-    <div id="wd-courses-navigation" className="list-group fs-5 rounded-0">
+    <div id="wd-courses-navigation" className="list-group fs-5 rounded-0 me-3">
       <Link
         href="/Courses/1234/Home"
         id="wd-course-home-link"

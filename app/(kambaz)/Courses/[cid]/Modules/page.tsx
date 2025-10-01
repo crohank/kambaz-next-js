@@ -3,7 +3,6 @@ import ModulesControls from "./ModulesControls";
 import { BsGripVertical } from "react-icons/bs";
 import LessonControlButtons from "./LessonControlButtons";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { FaPlus } from "react-icons/fa6";
 import ModuleControlButtons from "./ModuleControlButtons";
 
 export default function Modules() {

@@ -15,30 +15,20 @@ export default function ModulesControls() {
       <Button
         variant="danger"
         size="lg"
-        className="me-1 float-end"
+        className="me-1 float-end bg-secondary"
         id="wd-add-module-btn"
       >
-        <FaPlus className="position-relative me-2 bg-secondary" style={{ bottom: "1px" }} />
         Collapse All
       </Button>
       <Button
         variant="danger"
         size="lg"
-        className="me-1 float-end"
+        className="me-1 float-end bg-secondary"
         id="wd-add-module-btn"
       >
-        <FaPlus className="position-relative me-2" style={{ bottom: "1px" }} />
         View Progress
       </Button>
-      <Button
-        variant="danger"
-        size="lg"
-        className="me-1 float-end"
-        id="wd-add-module-btn"
-      >
-        <FaPlus className="position-relative me-2" style={{ bottom: "1px" }} />
-        Module
-      </Button>
+
       <Dropdown className="float-end me-2">
         <DropdownToggle variant="secondary" size="lg" id="wd-publish-all-btn">
           <GreenCheckmark /> Publish All
@@ -61,16 +51,16 @@ export default function ModulesControls() {
           </DropdownItem>
         </DropdownMenu>
       </Dropdown>
+
       <Button
         variant="danger"
         size="lg"
         className="me-1 float-end"
-        id="wd-view-progress"
+        id="wd-add-module-btn"
       >
         <FaPlus className="position-relative me-2" style={{ bottom: "1px" }} />
-        Progress
+        Module
       </Button>
-      
     </div>
   );
 }
