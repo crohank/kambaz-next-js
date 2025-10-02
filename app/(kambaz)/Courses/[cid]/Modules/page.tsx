@@ -9,13 +9,7 @@ export default function Modules() {
   return (
     <div>
       <ModulesControls />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
+      <br/>
       <ListGroup className="rounded-0" id="wd-modules">
         <ListGroupItem className="wd-module p-0 mb-5 fs-5 border-secondary">
           <div className="wd-title p-3 ps-2 bg-secondary">

@@ -9,7 +9,7 @@ export default function AccountLayout({ children }: Readonly<{ children: ReactNo
            <td valign="top">
              <AccountNavigation />
            </td>
-           <td valign="top" width="200px">
+           <td valign="top" width="400px">
              {children}
            </td>
          </tr>

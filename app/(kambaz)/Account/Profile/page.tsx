@@ -3,10 +3,7 @@ import Link from "next/link";
 export default function Profile() {
   return (
     <div id="wd-profile-screen" className="container mt-4">
-      <div className="card" style={{ maxWidth: '400px', margin: '0 auto' }}>
-        <div className="card-body">
-          <h3 className="card-title text-center mb-4">Profile</h3>
-          
+      <h2>Profile</h2>
           <div className="mb-3">
             <input 
               defaultValue="alice" 
@@ -44,7 +41,8 @@ export default function Profile() {
           
           <div className="mb-3">
             <input 
-              defaultValue="2000-01-01" 
+              defaultValue="dd-mm-yyyy" 
+              placeholder="mm/dd/yyyy"
               type="date" 
               id="wd-dob"
               className="form-control"
@@ -77,7 +75,5 @@ export default function Profile() {
             Sign out
           </Link>
         </div>
-      </div>
-    </div>
   );
 }

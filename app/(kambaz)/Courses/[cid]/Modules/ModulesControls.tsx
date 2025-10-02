@@ -11,25 +11,25 @@ import GreenCheckmark from "./GreenCheckmark";
 import "bootstrap/dist/css/bootstrap.min.css";
 export default function ModulesControls() {
   return (
-    <div id="wd-modules-controls" className="text-nowrap">
+    <div id="wd-modules-controls" className="d-flex flex-wrap justify-content-end gap-2 md-2">
       <Button
-        variant="danger"
+        variant="secondary"
         size="lg"
-        className="me-1 float-end bg-secondary"
         id="wd-add-module-btn"
       >
         Collapse All
       </Button>
+
+      
       <Button
-        variant="danger"
+        variant="secondary"
         size="lg"
-        className="me-1 float-end bg-secondary"
-        id="wd-add-module-btn"
+        id="wd-view-progress-module-btn"
       >
         View Progress
       </Button>
 
-      <Dropdown className="float-end me-2">
+      <Dropdown>
         <DropdownToggle variant="secondary" size="lg" id="wd-publish-all-btn">
           <GreenCheckmark /> Publish All
         </DropdownToggle>
@@ -55,10 +55,9 @@ export default function ModulesControls() {
       <Button
         variant="danger"
         size="lg"
-        className="me-1 float-end"
         id="wd-add-module-btn"
       >
-        <FaPlus className="position-relative me-2" style={{ bottom: "1px" }} />
+        <FaPlus className="position-relative me-2" />
         Module
       </Button>
     </div>

@@ -7,7 +7,7 @@ import Link from "next/link";
 export default function KambazNavigation() {
   return (
     <ListGroup
-       className="rounded-0 position-fixed bottom-0 top-0 d-none d-md-block bg-black z-2"
+       className="rounded-0 position-fixed bottom-0 top-0 d-none d-md-block bg-black z-2 text-white"
        style={{ width: 110 }}
       id="wd-kambaz-navigation"
     >
@@ -18,22 +18,22 @@ export default function KambazNavigation() {
         href="https://www.northeastern.edu/"
         id="wd-neu-link"
       >
-        <img src="/images/NEU.png" width="75px" alt="Northeastern University" />
+        <img src="/images/NEU2.png" width="75px" alt="Northeastern University" />
       </ListGroupItem>
       <br />
-      <ListGroupItem className="border-0 bg-white text-center">
+      <ListGroupItem className="border-0  bg-black text-center">
         <Link
           href="/Account"
           id="wd-account-link"
-          className="text-danger text-decoration-none"
+          className="text-white text-decoration-none"
         >
-          <FaRegCircleUser className="fs-1 text-danger text-center" />
+          <FaRegCircleUser className="fs-1 text-danger text-center text-white" />
           <br />
           Account
         </Link>
       </ListGroupItem>
       <br />
-      <ListGroupItem className="border-0 bg-black text-center">
+      <ListGroupItem className="border-0 bg-white text-center">
         <Link
           href="/Dashboard"
           id="wd-dashboard-link"
@@ -49,7 +49,7 @@ export default function KambazNavigation() {
         <Link
           href="/Dashboard"
           id="wd-courses-link"
-          className="text-danger text-decoration-none"
+          className="text-white text-decoration-none"
         >
           <LiaBookSolid className="fs-1 text-danger" />
           <br />
@@ -61,7 +61,7 @@ export default function KambazNavigation() {
         <Link
           href="/Calendar"
           id="wd-calendar-link"
-          className="text-danger text-decoration-none"
+          className="text-white text-decoration-none"
         >
           <IoCalendarOutline className="fs-1 text-danger" />
           <br />
@@ -73,7 +73,7 @@ export default function KambazNavigation() {
         <Link
           href="/Inbox"
           id="wd-inbox-link"
-          className="text-danger text-decoration-none"
+          className="text-white text-decoration-none"
         >
           <FaInbox className="fs-1 text-danger" />
           <br />
@@ -85,7 +85,7 @@ export default function KambazNavigation() {
         <Link
           href="/Labs"
           id="wd-labs-link"
-          className="text-danger text-decoration-none"
+          className="text-white text-decoration-none"
         >
           <LiaCogSolid className="fs-1 text-danger" />
           <br />
