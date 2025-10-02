@@ -3,9 +3,9 @@ export default function AccountNavigation() {
  return (
   
    <div id="wd-account-navigation" className="list-group fs-5 rounded-0 me-3">
-     <Link href="Signin"> Signin </Link> <br />
-     <Link href="Signup"> Signup </Link> <br />
-     <Link href="Profile"> Profile </Link> <br />
+     <Link href="Signin" className="list-group-item active border-0"> Signin </Link> <br />
+     <Link href="Signup" className="list-group-item border-0"> Signup </Link> <br />
+     <Link href="Profile" className="list-group-item border-0"> Profile </Link> <br />
    </div>
 );}
 

@@ -1,5 +1,3 @@
-import { ListGroup, ListGroupItem } from "react-bootstrap";
-
 export default function AssignmentEditor() {
   return (
     <div id="wd-assignments-editor" className="container-fluid">
