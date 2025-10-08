@@ -1,6 +1,5 @@
 import Modules from "../Modules/page";
 import CourseStatus from "./Status";
-import "bootstrap/dist/css/bootstrap.min.css";
 export default function Home() {
   return (
     <div id="wd-home">
