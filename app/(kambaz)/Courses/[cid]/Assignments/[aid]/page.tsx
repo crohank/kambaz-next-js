@@ -1,4 +1,18 @@
+"use client";
+
+import * as db from "../../../../Database";
+import { usePathname } from "next/navigation";
+
 export default function AssignmentEditor() {
+  const pathname = usePathname();
+  const segments = pathname.split("/");
+  const assignmentId = segments[4]; 
+
+
+  const assignment = db.assignments.find((a) => a._id === assignmentId);
+
+  if (!assignment) return <p>Assignment not found</p>;
+
   return (
     <div id="wd-assignments-editor" className="container-fluid">
       <div className="mb-3">
@@ -8,7 +22,7 @@ export default function AssignmentEditor() {
         <input
           id="wd-name"
           className="form-control"
-          defaultValue="A1 - EVN + HTML"
+          defaultValue={assignment.title}
         />
       </div>
 
@@ -20,7 +34,7 @@ export default function AssignmentEditor() {
           <div className="card-body">
             <input
               id="wd-description"
-              className="form-control border-=0 p-0"
+              className="form-control border-0 p-0"
               type="text"
               defaultValue="The assignment is available online"
             />
@@ -41,6 +55,10 @@ export default function AssignmentEditor() {
               The kambaz application should include a link to navigate back to
               the landing page.
             </p>
+            <br/>
+            <p>
+              {assignment.description}
+            </p>
           </div>
         </div>
       </div>
@@ -48,7 +66,7 @@ export default function AssignmentEditor() {
       <div className="row mb-3">
         <label
           htmlFor="wd-points"
-          className="col-sm-3 col-form-label col-form-label text-end"
+          className="col-sm-3 col-form-label text-end"
         >
           Points
         </label>
@@ -56,7 +74,7 @@ export default function AssignmentEditor() {
           <input
             id="wd-points"
             className="form-control"
-            defaultValue="100"
+            defaultValue={assignment.points}
             type="number"
           />
         </div>
@@ -106,60 +124,31 @@ export default function AssignmentEditor() {
             <div>
               <label className="form-lable fw-bold">Online Entry Options</label>
               <div className="form-check">
-                <input
-                  className="form-check-input"
-                  type="checkbox"
-                  id="wd-text-entry"
-                />
+                <input className="form-check-input" type="checkbox" id="wd-text-entry" />
                 <label className="form-check-label" htmlFor="wd-text-entry">
                   Text Entry
                 </label>
               </div>
-
               <div className="form-check">
-                <input
-                  className="form-check-input"
-                  type="checkbox"
-                  id="wd-website-url"
-                  defaultChecked
-                />
+                <input className="form-check-input" type="checkbox" id="wd-website-url" defaultChecked />
                 <label className="form-check-label" htmlFor="wd-website-url">
                   Website URL
                 </label>
               </div>
-
               <div className="form-check">
-                <input
-                  className="form-check-input"
-                  type="checkbox"
-                  id="wd-media-recordings"
-                />
-                <label
-                  className="form-check-label"
-                  htmlFor="wd-media-recordings"
-                >
+                <input className="form-check-input" type="checkbox" id="wd-media-recordings" />
+                <label className="form-check-label" htmlFor="wd-media-recordings">
                   Media Recordings
                 </label>
               </div>
               <div className="form-check">
-                <input
-                  className="form-check-input"
-                  type="checkbox"
-                  id="wd-student-annotation"
-                />
-                <label
-                  className="form-check-label"
-                  htmlFor="wd-student-annotation"
-                >
+                <input className="form-check-input" type="checkbox" id="wd-student-annotation" />
+                <label className="form-check-label" htmlFor="wd-student-annotation">
                   Student Annotation
                 </label>
               </div>
               <div className="form-check">
-                <input
-                  className="form-check-input"
-                  type="checkbox"
-                  id="wd-file-upload"
-                />
+                <input className="form-check-input" type="checkbox" id="wd-file-upload" />
                 <label className="form-check-label" htmlFor="wd-file-upload">
                   File Uploads
                 </label>
@@ -194,7 +183,7 @@ export default function AssignmentEditor() {
               type="datetime-local"
               id="wd-due-date"
               className="form-control mb-3"
-              defaultValue="2024-05-13T23:59"
+              defaultValue={assignment.dueDate}
             />
 
             <div className="row">
@@ -209,7 +198,7 @@ export default function AssignmentEditor() {
                   type="datetime-local"
                   id="wd-available-from"
                   className="form-control"
-                  defaultValue="2024-05-06T00:00"
+                  defaultValue={assignment.releaseDate}
                 />
               </div>
 
@@ -224,7 +213,7 @@ export default function AssignmentEditor() {
                   type="datetime-local"
                   id="wd-available-until"
                   className="form-control"
-                  defaultValue="2024-05-20T23:59"
+                  defaultValue={assignment.dueDate}
                 />
               </div>
             </div>
