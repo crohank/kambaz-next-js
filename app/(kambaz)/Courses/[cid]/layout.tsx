@@ -4,17 +4,16 @@ import CourseNavigation from "./Navigation";
 import BreadcrumbClient from "./BreadcrumbClient";
 import { courses } from "../../Database";
 
-// Define an explicit type for the component's props
 type Props = {
   children: ReactNode;
-  params: { cid: string };
+  params: Promise<{ cid: string }>; 
 };
 
-// Add async and use the new Props type
-export default async function CoursesLayout({ children, params }: Props) {
-  const { cid } = params;
-  const course = courses.find((course) => course._id === cid);
 
+export default async function CoursesLayout({ children, params }: Props) {
+  const { cid } = await params; 
+  const course = courses.find((course) => course._id === cid);
+  
   return (
     <div id="wd-courses">
       <h2 className="text-danger">
