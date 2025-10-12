@@ -1,9 +1,7 @@
-"use client";
-
 import { ReactNode } from "react";
-import { usePathname } from "next/navigation";
-import CourseNavigation from "./Navigation";
 import { FaAlignJustify } from "react-icons/fa";
+import CourseNavigation from "./Navigation";
+import BreadcrumbClient from "./BreadcrumbClient";
 import { courses } from "../../Database";
 
 export default function CoursesLayout({
@@ -13,21 +11,15 @@ export default function CoursesLayout({
   children: ReactNode;
   params: { cid: string };
 }) {
-  const pathname = usePathname();
-  const course = courses.find((course) => course._id === params.cid);
-
-  const segments = pathname.split("/");
-  const section = segments[3];
+  const { cid } = params;
+  const course = courses.find((course) => course._id === cid);
 
   return (
     <div id="wd-courses">
       <h2 className="text-danger">
         <FaAlignJustify className="me-4 fs-4 mb-1" />
         {course?.name}
-        <span className="text-danger">
-          {" > "}
-          {section}
-        </span>
+        <BreadcrumbClient />
       </h2>
       <hr />
       <div className="d-flex">
