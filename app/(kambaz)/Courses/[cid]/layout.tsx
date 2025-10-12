@@ -4,7 +4,7 @@ import CourseNavigation from "./Navigation";
 import BreadcrumbClient from "./BreadcrumbClient";
 import { courses } from "../../Database";
 
-export default function CoursesLayout({
+export default async function CoursesLayout({
   children,
   params,
 }: {
