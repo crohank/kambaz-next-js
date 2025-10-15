@@ -33,9 +33,9 @@ export default function CourseNavigation() {
             key={link}
             href={linkPath}
             id={`wd-course-${link.toLowerCase()}-link`}
-            className={`list-group-item border-0${
-              isActive ? " border-start border-dark border-4" : ""
-            }`}
+            className={`list-group-item border-0 ${
+      isActive ? "border-start border-dark border-4 text-dark" : "text-danger"
+    }`}
           >
             {link}
           </Link>
