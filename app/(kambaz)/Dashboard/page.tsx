@@ -1,7 +1,6 @@
 import Link from "next/link";
 import * as db from "../Database";
 import { Row, Col, Card, CardImg, CardBody, CardTitle, CardText, Button } from "react-bootstrap";
-
 export default function Dashboard() {
   const courses = db.courses;
   return (

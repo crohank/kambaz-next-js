@@ -1,4 +1,5 @@
 "use client"
+import TodoList from "../Lab4/ReduxExamples/todos/TodoList";
 import ArrayStateVariable from "./ArrayStateVariable";
 import BooleanStateVariables from "./BooleanStateVariables";
 import ClickEvent from "./ClickEvent";
@@ -9,6 +10,7 @@ import ObjectStateVariable from "./ObjectStateVariable";
 import ParentStateComponent from "./ParentStateComponent";
 import PassingDataOnEvent from "./PassingDataOnEvent";
 import PassingFunctions from "./PassingFunctions";
+import AddRedux from "./ReduxExamples/AddRedux/page";
 import CounterRedux from "./ReduxExamples/CounterRedux/page";
 import HelloRedux from "./ReduxExamples/HelloRedux/page";
 import ReduxExamples from "./ReduxExamples/page";
@@ -38,6 +40,8 @@ export default function lab4() {
       <ReduxExamples/>
       <HelloRedux/>
       <CounterRedux/>
+      <AddRedux/>
+      <TodoList/>
     </div>
     </Provider>
   );
