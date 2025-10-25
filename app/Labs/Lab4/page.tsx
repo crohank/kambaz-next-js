@@ -15,7 +15,7 @@ import CounterRedux from "./ReduxExamples/CounterRedux/page";
 import HelloRedux from "./ReduxExamples/HelloRedux/page";
 import ReduxExamples from "./ReduxExamples/page";
 import StringStateVariables from "./StringStateVariables";
-import store from "./store/page";
+import store from "./store/store";
 import { Provider } from "react-redux";
 export default function lab4() {
   function sayHello() {
