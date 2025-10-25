@@ -3,7 +3,6 @@
 import { useSelector, useDispatch } from "react-redux";
 import { increment, decrement } from "./counterReducer";
 export default function CounterRedux() {
-  //const { count } = useSelector((state: any) => state.counterReducer);
   const count = useSelector((s: any) => s.counterReducer?.count??0);
   const dispatch = useDispatch();
   return (
