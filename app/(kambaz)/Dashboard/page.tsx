@@ -1,8 +1,6 @@
 "use client";
 import { useState } from "react";
 import Link from "next/link";
-import * as db from "../Database";
-import { v4 as uuidv4 } from "uuid";
 import {
   Row,
   Col,
@@ -21,14 +19,16 @@ import { addNewCourse, deleteCourse, updateCourse } from "../Courses/reducer";
 
 export default function Dashboard() {
   //const courses = db.courses;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+   
   //const [courses, setCourses] = useState<any[]>(db.courses);
+   
+
+
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-
-
   const { courses } = useSelector((state: any) => state.coursesReducer);
   const dispatch = useDispatch();
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const [course, setCourse] = useState<any>({
     _id: "0",
     name: "New Course",
