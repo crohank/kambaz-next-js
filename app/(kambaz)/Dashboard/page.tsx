@@ -113,6 +113,7 @@ export default function Dashboard() {
           onChange={(e) => setCourse({ ...course, name: e.target.value })}
         />
         <FormControl
+        as={"textarea"}
           value={course.description}
           rows={3}
           onChange={(e) =>
