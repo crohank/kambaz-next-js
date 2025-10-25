@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+"use client";
 import { useState } from "react";
 import { ListGroup, ListGroupItem } from "react-bootstrap";
 import { useSelector } from "react-redux";
