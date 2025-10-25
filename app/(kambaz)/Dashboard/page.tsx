@@ -69,7 +69,7 @@ export default function Dashboard() {
         <h5>
           New Course
           <button
-            className="btn btn-primary float-end"
+            className="btn btn-primary float-end me-2"
             id="wd-add-new-course-click"
             onClick={() => dispatch(addNewCourse(course))}
           >
@@ -90,7 +90,7 @@ export default function Dashboard() {
               
               dispatch(deleteCourse(course._id));
             }}
-            className="btn btn-warning me-2 float-end"
+            className="btn btn-warning float-end me-2"
           >
             Edit
           </button>
@@ -98,7 +98,7 @@ export default function Dashboard() {
             onClick={(event) => {
               event.preventDefault();
             }}
-            className="btn btn-danger float-end"
+            className="btn btn-danger float-end me-2"
             id="wd-delete-course-click"
           >
             Delete

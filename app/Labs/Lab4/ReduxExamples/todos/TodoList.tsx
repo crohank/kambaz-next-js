@@ -1,5 +1,6 @@
 /* eslint-disable react/jsx-key */
 /* eslint-disable @typescript-eslint/no-explicit-any */
+'use client';
 import React from "react";
 import TodoForm from "./TodoForm";
 import TodoItem from "./TodoItem";
