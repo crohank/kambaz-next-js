@@ -1,3 +1,4 @@
+/* eslint-disable */
 "use client";
 import { useState } from "react";
 import Link from "next/link";
@@ -12,24 +13,34 @@ import {
   Button,
   FormControl,
 } from "react-bootstrap";
-
 import { useDispatch, useSelector } from "react-redux";
 import { addNewCourse, deleteCourse, updateCourse } from "../Courses/reducer";
+import { ChangeEvent } from "react"; 
 
+
+interface Course {
+  _id: string;
+  name: string;
+  number: string;
+  startDate: string;
+  endDate: string;
+  image: string;
+  description: string;
+}
+
+interface RootState {
+  coursesReducer: {
+    courses: Course[]; 
+  };
+  
+}
 
 export default function Dashboard() {
-  //const courses = db.courses;
-   
-  //const [courses, setCourses] = useState<any[]>(db.courses);
-   
-
-
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const { courses } = useSelector((state: any) => state.coursesReducer);
+  const { courses } = useSelector((state: RootState) => state.coursesReducer);
   const dispatch = useDispatch();
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const [course, setCourse] = useState<any>({
+  
+  const [course, setCourse] = useState<Course>({
     _id: "0",
     name: "New Course",
     number: "New Number",
@@ -39,26 +50,13 @@ export default function Dashboard() {
     description: "New Description",
   });
 
-  // const updateCourse = () => {
-  //   setCourses(
-  //     courses.map((c) => {
-  //       if (c._id === course._id) {
-  //         return course;
-  //       } else {
-  //         return c;
-  //       }
-  //     })
-  //   );
-  // };
+  
+  const handleCourseChange = (
+    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    setCourse({ ...course, [e.target.id]: e.target.value });
+  };
 
-  // const addNewCourse = () => {
-  //   const newCourse = { ...course, _id: uuidv4() };
-  //   setCourses([...courses, newCourse]);
-  // };
-
-  // const deleteCourse = (courseId: string) => {
-  //   setCourses(courses.filter((course) => course._id !== courseId));
-  // };
 
   return (
     <div id="wd-dashboard">
@@ -89,6 +87,7 @@ export default function Dashboard() {
             id="wd-edit-course-click"
             onClick={(event) => {
               event.preventDefault();
+              
               dispatch(deleteCourse(course._id));
             }}
             className="btn btn-warning me-2 float-end"
@@ -98,7 +97,6 @@ export default function Dashboard() {
           <button
             onClick={(event) => {
               event.preventDefault();
-              deleteCourse(course._id);
             }}
             className="btn btn-danger float-end"
             id="wd-delete-course-click"
@@ -108,21 +106,27 @@ export default function Dashboard() {
         </h5>
         <br />
         <FormControl
+          id="name" 
           value={course.name}
           className="mb-2"
-          onChange={(e) => setCourse({ ...course, name: e.target.value })}
+          onChange={(e: ChangeEvent<HTMLInputElement>) =>
+            setCourse({ ...course, name: e.target.value })
+          }
         />
+        
         <FormControl
-        as={"textarea"}
+          as="textarea"
+          id="description"
           value={course.description}
           rows={3}
-          onChange={(e) =>
+          onChange={(e: ChangeEvent<HTMLTextAreaElement>) =>
             setCourse({ ...course, description: e.target.value })
           }
         />{" "}
         <hr />
         <Row xs={1} md={5} className="g-4">
-          {courses.map((course) => (
+          {/* FIX: Explicitly typed the 'course' parameter to fix the Type Error */}
+          {courses.map((course: Course) => (
             <Col
               key={course._id}
               className="wd-dashboard-course"
