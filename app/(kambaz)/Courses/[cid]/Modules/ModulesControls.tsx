@@ -1,3 +1,6 @@
+"use client";
+
+import { useState } from "react";
 import {
   Button,
   Dropdown,
@@ -8,24 +11,32 @@ import {
 import { FaPlus } from "react-icons/fa6";
 import { MdBlock } from "react-icons/md";
 import GreenCheckmark from "./GreenCheckmark";
+import ModuleEditor from "./ModuleEditor";
 import "bootstrap/dist/css/bootstrap.min.css";
-export default function ModulesControls() {
+
+export default function ModulesControls({
+  moduleName,
+  setModuleName,
+  addModule,
+}: {
+  moduleName: string;
+  setModuleName: (title: string) => void;
+  addModule: () => void;
+}) {
+  const [show, setShow] = useState(false);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
   return (
-    <div id="wd-modules-controls" className="d-flex flex-wrap justify-content-end gap-2 md-2">
-      <Button
-        variant="secondary"
-        size="lg"
-        id="wd-add-module-btn"
-      >
+    <div
+      id="wd-modules-controls"
+      className="d-flex flex-wrap justify-content-end gap-2 mb-2 text-nowrap"
+    >
+      <Button variant="secondary" size="lg" id="wd-collapse-all-btn">
         Collapse All
       </Button>
 
-      
-      <Button
-        variant="secondary"
-        size="lg"
-        id="wd-view-progress-module-btn"
-      >
+      <Button variant="secondary" size="lg" id="wd-view-progress-module-btn">
         View Progress
       </Button>
 
@@ -56,10 +67,20 @@ export default function ModulesControls() {
         variant="danger"
         size="lg"
         id="wd-add-module-btn"
+        onClick={handleShow}
       >
-        <FaPlus className="position-relative me-2" />
+        <FaPlus className="position-relative me-2" style={{ bottom: "1px" }} />
         Module
       </Button>
+
+      <ModuleEditor
+        show={show}
+        handleClose={handleClose}
+        dialogTitle="Add Module"
+        moduleName={moduleName}
+        setModuleName={setModuleName}
+        addModule={addModule}
+      />
     </div>
   );
 }
