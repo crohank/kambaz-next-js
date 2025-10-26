@@ -16,33 +16,34 @@ import HelloRedux from "./ReduxExamples/HelloRedux/page";
 import ReduxExamples from "./ReduxExamples/page";
 import StringStateVariables from "./StringStateVariables";
 import store from "./store/store";
-import { Provider } from "react-redux";
-export default function lab4() {
-  function sayHello() {
-    alert("Hello");
-  }
+import {Provider} from "react-redux";
 
-  return (
-    <Provider store={store}>
-    <div>
-      <h1>Lab 4 : Maintaining State in React Applications</h1>
-      <ClickEvent />
-      <PassingDataOnEvent />
-      <PassingFunctions theFunction={sayHello} />
-      <EventObject/>
-      <Counter/>
-      <BooleanStateVariables/>
-      <StringStateVariables/>
-      <DateStateVariable/>
-      <ObjectStateVariable/>
-      <ArrayStateVariable/>
-      <ParentStateComponent/>
-      <ReduxExamples/>
-      <HelloRedux/>
-      <CounterRedux/>
-      <AddRedux/>
-      <TodoList/>
-    </div>
-    </Provider>
-  );
+export default function lab4() {
+    function sayHello() {
+        alert("Hello");
+    }
+
+    return (
+        <Provider store={store}>
+            <div>
+                <h1>Lab 4 : Maintaining State in React Applications</h1>
+                <ClickEvent/>
+                <PassingDataOnEvent/>
+                <PassingFunctions theFunction={sayHello}/>
+                <EventObject/>
+                <Counter/>
+                <BooleanStateVariables/>
+                <StringStateVariables/>
+                <DateStateVariable/>
+                <ObjectStateVariable/>
+                <ArrayStateVariable/>
+                <ParentStateComponent/>
+                <ReduxExamples/>
+                <HelloRedux/>
+                <CounterRedux/>
+                <AddRedux/>
+                <TodoList/>
+            </div>
+        </Provider>
+    );
 }

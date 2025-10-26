@@ -1,6 +1,6 @@
 "use client";
 export default function calendar() {
-    return(
+    return (
         <div>
             <h1>Calender</h1>
         </div>

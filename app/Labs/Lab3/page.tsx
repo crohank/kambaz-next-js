@@ -33,49 +33,52 @@ import TodoItem from "./todo/TodoItem";
 import TodoList from "./todo/TodoList";
 
 export default function Lab3() {
-  console.log('Hello World')
-  return (
-    <div>
-      <h2>Lab 3</h2>
-      <VariablesAndConstants/>
-      <VariableTypes/>
-      <BooleanVariables/>
-      <IfElse/>
-      <TernaryOperator/>
-      <ConditionalOutputIfElse/>
-      <ConditionalOutputInline/>
-      <LegacyFunctions/>
-      <ArrowFunctions/>
-      <ImpliedReturn/>
-      <TemplateLiterals/>
-      <SimpleArrays/>
-      <TodoItem/>
-      <hr/>
-      <TodoList/>
-      <ArrayIndexAndLength/>
-      <AddingAndRemovingToFromArrays/>
-      <ForLoops/>
-      <MapFunction/>
-      <FindFunction/>
-      <FindIndex/>
-      <FilterFunction/>
-      <JsonStringify/>
-      <House/>
-      <Spreader/>
-      <Destructing/>
-      <FunctionDestructing/>
-      <DestructingImports/>
-      <Classes/>
-      <Styles/>
-      <Add a={3} b={4}/>
-      <h4>Square of 4</h4>
-      <Square>4</Square>
-      <hr/>
-      <Highlight>
-         Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipitratione eaque illo minus cum, saepe totam
-        vel nihil repellat nemo explicabo excepturi consectetur. Modi omnis minus sequi maiores, provident voluptates.
-      </Highlight>
-      <PathParameters/>
-    </div>
-);}
+    console.log('Hello World')
+    return (
+        <div>
+            <h2>Lab 3</h2>
+            <VariablesAndConstants/>
+            <VariableTypes/>
+            <BooleanVariables/>
+            <IfElse/>
+            <TernaryOperator/>
+            <ConditionalOutputIfElse/>
+            <ConditionalOutputInline/>
+            <LegacyFunctions/>
+            <ArrowFunctions/>
+            <ImpliedReturn/>
+            <TemplateLiterals/>
+            <SimpleArrays/>
+            <TodoItem/>
+            <hr/>
+            <TodoList/>
+            <ArrayIndexAndLength/>
+            <AddingAndRemovingToFromArrays/>
+            <ForLoops/>
+            <MapFunction/>
+            <FindFunction/>
+            <FindIndex/>
+            <FilterFunction/>
+            <JsonStringify/>
+            <House/>
+            <Spreader/>
+            <Destructing/>
+            <FunctionDestructing/>
+            <DestructingImports/>
+            <Classes/>
+            <Styles/>
+            <Add a={3} b={4}/>
+            <h4>Square of 4</h4>
+            <Square>4</Square>
+            <hr/>
+            <Highlight>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipitratione eaque illo minus cum, saepe
+                totam
+                vel nihil repellat nemo explicabo excepturi consectetur. Modi omnis minus sequi maiores, provident
+                voluptates.
+            </Highlight>
+            <PathParameters/>
+        </div>
+    );
+}
 
