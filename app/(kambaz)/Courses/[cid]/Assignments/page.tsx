@@ -11,18 +11,21 @@ import AssignmentControls from "./AssignmentControls";
 import AssignmentControlButtons from "./AssignmentControlButtons";
 import * as db from "../../../Database";
 import {usePathname} from "next/navigation";
+import {useSelector} from "react-redux";
 
 export default function Assignments() {
     const pathname = usePathname();
     const segments = pathname.split("/");
     const cid = segments[2];
 
-
     const assignments = db.assignments.filter((a) => a.course === cid);
+    const currentUser = useSelector(
+        (state: any) => state.accountReducer.currentUser
+    );
 
     return (
         <div id="wd-assignments">
-            <AssignmentControls/>
+            <AssignmentControls showFacultyButtons={currentUser?.role === "FACULTY"} />
 
             <ListGroup className="rounded-0 mt-4">
                 <ListGroupItem className="p-0 mb-5 fs-5 border-secondary">
@@ -31,12 +34,16 @@ export default function Assignments() {
                         <IoMdArrowDropdown className="me-2"/>
                         <strong>ASSIGNMENTS</strong>
                         <span className="ms-auto">
-              <span className="border border-dark rounded-pill px-2 py-1 me-2">
-                40% of Total
-              </span>
-            </span>
-                        <FaPlus className="me-2"/>
-                        <FaEllipsisV/>
+                            <span className="border border-dark rounded-pill px-2 py-1 me-2">
+                                40% of Total
+                            </span>
+                        </span>
+                        {currentUser?.role === "FACULTY" && (
+                            <>
+                                <FaPlus className="me-2"/>
+                                <FaEllipsisV/>
+                            </>
+                        )}
                     </div>
 
                     {assignments.map((assignment) => (
@@ -57,11 +64,10 @@ export default function Assignments() {
                                         {assignment.releaseDate}
                                     </div>
                                     <div>
-                                        <span
-                                            className="fw-bold">Due</span> {assignment.dueDate} | {assignment.points} pts
+                                        <span className="fw-bold">Due</span> {assignment.dueDate} | {assignment.points} pts
                                     </div>
                                 </div>
-                                <AssignmentControlButtons/>
+                                {currentUser?.role === "FACULTY" && <AssignmentControlButtons/>}
                             </ListGroupItem>
                         </ListGroup>
                     ))}
