@@ -10,7 +10,7 @@ export default function AccountNavigation() {
     const links = currentUser ? ["Profile"] : ["Signin", "Signup"];
     const pathname = usePathname();
     return (
-        <Nav variant="pills">
+        <Nav variant="pills" className="flex-column">
             {links.map((link) => (
                 <NavItem key={link}>
                     <NavLink
