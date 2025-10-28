@@ -2,7 +2,7 @@
 import React from "react";
 import {useDispatch} from "react-redux";
 import {deleteTodo, setTodo} from "./todoReducer";
-import {ListGroupItem, Button} from "react-bootstrap";
+import {Button, ListGroupItem} from "react-bootstrap";
 
 
 interface Todo {

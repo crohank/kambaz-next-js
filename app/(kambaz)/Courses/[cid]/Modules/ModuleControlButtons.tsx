@@ -1,8 +1,7 @@
 import GreenCheckmark from "./GreenCheckmark";
-import {FaPlus} from "react-icons/fa6";
+import {FaPencil, FaPlus} from "react-icons/fa6";
 import {SlOptionsVertical} from "react-icons/sl";
 import {FaTrash} from "react-icons/fa";
-import {FaPencil} from "react-icons/fa6";
 
 export default function ModuleControlButtons({
                                                  moduleId,

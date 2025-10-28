@@ -8,13 +8,8 @@ import ModuleControlButtons from "./ModuleControlButtons";
 import "bootstrap/dist/css/bootstrap.min.css";
 import {useParams} from "next/navigation";
 import {useState} from "react";
-import {useSelector, useDispatch} from "react-redux";
-import {
-    addModule,
-    editModule,
-    updateModule,
-    deleteModule,
-} from "./reducer";
+import {useDispatch, useSelector} from "react-redux";
+import {addModule, deleteModule, editModule, updateModule,} from "./reducer";
 
 export default function Modules() {
     const {cid} = useParams();

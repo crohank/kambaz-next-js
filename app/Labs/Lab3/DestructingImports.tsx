@@ -1,5 +1,5 @@
-import Math, {add, subtract, multiply, divide} from "./Math";
-import * as Matematica from "./Math";
+import Math, * as Matematica from "./Math";
+import {add, divide, multiply, subtract} from "./Math";
 
 export default function DestructingImports() {
     return (

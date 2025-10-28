@@ -1,14 +1,4 @@
-import {
-    Button,
-    Card,
-    CardBody,
-    CardImg,
-    CardText,
-    CardTitle,
-    Nav,
-    NavItem,
-    NavLink,
-} from "react-bootstrap";
+import {Button, Card, CardBody, CardImg, CardText, CardTitle, Nav, NavItem, NavLink,} from "react-bootstrap";
 
 export default function BootstrapNavigation() {
     return (

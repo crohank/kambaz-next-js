@@ -1,13 +1,10 @@
-import {MdDoNotDisturbAlt} from "react-icons/md";
+import {MdDoNotDisturbAlt, MdNotificationsNone, MdOutlineAddHomeWork, MdOutlineClass} from "react-icons/md";
 import {FaCheckCircle} from "react-icons/fa";
 import {BiImport} from "react-icons/bi";
 import {LiaFileImportSolid} from "react-icons/lia";
-import {MdOutlineAddHomeWork} from "react-icons/md";
 import {Button} from "react-bootstrap";
 import {GrAnnounce} from "react-icons/gr";
-import {MdOutlineClass} from "react-icons/md";
 import {TbDeviceAnalytics} from "react-icons/tb";
-import {MdNotificationsNone} from "react-icons/md";
 
 export default function CourseStatus() {
     return (
