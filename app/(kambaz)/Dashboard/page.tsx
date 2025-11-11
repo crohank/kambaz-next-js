@@ -98,7 +98,8 @@ export default function Dashboard() {
                     )
                 );
 
-    return (
+    
+                return (
         <div id="wd-dashboard">
             <h1 id="wd-dashboard-title" className="d-flex justify-content-between">
                 Dashboard

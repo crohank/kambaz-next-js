@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 import {redirect} from "next/dist/client/components/navigation";
@@ -15,7 +16,8 @@ export default function Profile() {
         if (!currentUser) return redirect("/Account/Signin");
         setProfile(currentUser);
     };
-    const signout = () => {
+    const signout = async () => {
+        await client.signout();
         dispatch(setCurrentUser(null));
         redirect("/Account/Signin");
     };
