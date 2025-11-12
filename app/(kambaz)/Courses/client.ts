@@ -48,4 +48,18 @@ export const updateModule = async (module: any) => {
   const { data } = await axios.put(`${MODULES_API}/${module._id}`, module);
   return data;
 };
+export const enrollUserInCourse = async (userId: string, courseId: string) => {
+  const { data } = await axios.post(`${USERS_API}/${userId}/courses/${courseId}/enroll`);
+  return data;
+};
+
+export const unenrollUserFromCourse = async (userId: string, courseId: string) => {
+  const { data } = await axios.delete(`${USERS_API}/${userId}/courses/${courseId}/unenroll`);
+  return data;
+};
+
+export const findEnrollmentsForUser = async (userId: string) => {
+  const { data } = await axios.get(`${USERS_API}/${userId}/enrollments`);
+  return data;
+};
 
