@@ -1,55 +1,38 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
-import {Table} from "react-bootstrap";
-import {FaUserCircle} from "react-icons/fa";
-import * as db from "../../../../Database";
-import {usePathname} from "next/navigation";
+import { useState, useEffect } from "react";
+import { useParams } from "next/navigation";
+import PeopleTable from "../Table";
+import * as client from "../../../../Account/client";
 
-export default function PeopleTable() {
-    const pathname = usePathname();
-    const segments = pathname.split("/");
-    const courseId = segments[2];
+export default function People() {
+  const [users, setUsers] = useState<any[]>([]);
+  const [enrollments, setEnrollments] = useState<any[]>([]);
+  const { cid } = useParams();   
 
+  const fetchData = async () => {
+    const allUsers = await client.findAllUsers();
+    const allEnrollments = await client.findAllEnrollments();
 
-    const enrolledUserIds = db.enrollments
-        .filter((user) => user.course === courseId)
-        .map((user) => user.user);
+    setUsers(allUsers);
+    setEnrollments(allEnrollments);
+  };
 
+  useEffect(() => {
+    fetchData();
+  }, [cid]);
 
-    const enrolledUsers = db.users.filter((user) =>
-        enrolledUserIds.includes(user._id)
-    );
+  const enrolledUsers = users.filter((user) =>
+    enrollments.some(
+      (enr) => enr.user === user._id && enr.course === cid
+    )
+  );
 
-    return (
-        <div id="wd-people-table">
-            <Table striped>
-                <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Login ID</th>
-                    <th>Section</th>
-                    <th>Role</th>
-                    <th>Last Activity</th>
-                    <th>Total Activity</th>
-                </tr>
-                </thead>
-                <tbody>
-                {enrolledUsers.map((user) => (
-                    <tr key={user._id}>
-                        <td className="wd-full-name text-nowrap">
-                            <FaUserCircle className="me-2 fs-1 text-secondary"/>
-                            <span className="wd-first-name">{user.firstName}</span>{" "}
-                            <span className="wd-last-name">{user.lastName}</span>
-                        </td>
-                        <td className="wd-login-id">{user.loginId}</td>
-                        <td className="wd-section">{user.section}</td>
-                        <td className="wd-role">{user.role}</td>
-                        <td className="wd-last-activity">{user.lastActivity}</td>
-                        <td className="wd-total-activity">{user.totalActivity}</td>
-                    </tr>
-                ))}
-                </tbody>
-            </Table>
-        </div>
-    );
+  return (
+    <div>
+      <h3>Users</h3>
+      <PeopleTable users={enrolledUsers} fetchUsers={fetchData} />
+    </div>
+  );
 }
