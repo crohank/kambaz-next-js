@@ -209,7 +209,8 @@ export default function Dashboard() {
                   className="wd-dashboard-course-link text-decoration-none text-dark"
                 >
                   <CardImg
-                    src={c.image || "/images/react.jpg"}
+
+                    src={ c.image || "/images/MERN.jpg"}
                     variant="top"
                     width="100%"
                     height={160}
