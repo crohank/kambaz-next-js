@@ -19,9 +19,9 @@ import { useRouter } from "next/navigation";
 interface Course {
   _id: string;
   name: string;
-  number: string;
-  startDate: string;
-  endDate: string;
+  number?: string;
+  startDate?: string;
+  endDate?: string;
   image: string;
   description: string;
   createdBy?: string;
@@ -49,19 +49,19 @@ export default function Dashboard() {
   const [course, setCourse] = useState<Course>({
     _id: "0",
     name: "New Course",
-    number: "New Number",
-    startDate: "2023-09-10",
-    endDate: "2023-12-15",
     image: "/images/Mac.jpg",
     description: "New Description",
   });
 
   const fetchCourses = useCallback(async () => {
     if (!currentUser) return;
-    const data =
+    let data =
       currentUser.role === "FACULTY"
         ? await client.findMyCourses()
         : await client.fetchAllCourses();
+    if (currentUser.role === "FACULTY" && data.length === 0) {
+      data = await client.fetchAllCourses();
+    }
     setCourses(data);
   }, [currentUser]);
 
@@ -79,9 +79,10 @@ export default function Dashboard() {
   }, [currentUser, fetchCourses, fetchEnrollments]);
 
   const onAddNewCourse = async () => {
+    if (!currentUser) return;
     const newCourse = await client.createCourse({
       ...course,
-      createdBy: currentUser?._id,
+      createdBy: currentUser._id,
     });
     setCourses([...courses, newCourse]);
   };
@@ -128,11 +129,7 @@ export default function Dashboard() {
 
   const filteredCourses =
     currentUser.role === "FACULTY"
-      ? courses.filter(
-          (c) =>
-            c.createdBy === currentUser._id ||
-            enrollments.some((e) => e.course === c._id)
-        )
+      ? courses
       : showAll
       ? courses
       : courses.filter((c) =>
@@ -209,8 +206,7 @@ export default function Dashboard() {
                   className="wd-dashboard-course-link text-decoration-none text-dark"
                 >
                   <CardImg
-
-                    src={ c.image || "/images/MERN.jpg"}
+                    src={c.image || "/images/MERN.jpg"}
                     variant="top"
                     width="100%"
                     height={160}
@@ -259,7 +255,6 @@ export default function Dashboard() {
                       <button
                         onClick={(e) => {
                           e.preventDefault();
-                          // eslint-disable-next-line @typescript-eslint/no-unused-expressions
                           isEnrolled ? onUnenroll(c._id) : onEnroll(c._id);
                         }}
                         className={`btn float-end ${
