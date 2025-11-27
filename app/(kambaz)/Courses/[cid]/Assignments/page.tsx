@@ -12,33 +12,43 @@ import AssignmentControlButtons from "./AssignmentControlButtons";
 import { usePathname } from "next/navigation";
 import { useDispatch, useSelector } from "react-redux";
 import * as client from "./client";
-import { useEffect, useState } from "react";
-import { setAssignments, deleteAssignment } from "./reducer";
+import { useEffect, useState, useCallback } from "react";
+import { setAssignments, deleteAssignment as deleteAssignmentAction } from "./reducer";
 
 export default function Assignments() {
   const pathname = usePathname();
-  const cid = pathname.split("/")[2];
+  const segments = pathname.split("/");
+  const cid = segments[2];
   const dispatch = useDispatch();
   const currentUser = useSelector((state: any) => state.accountReducer.currentUser);
   const assignments = useSelector((state: any) => state.assignmentsReducer.assignments);
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    const load = async () => {
+  const loadAssignments = useCallback(async () => {
+    try {
       const data = await client.findAssignmentsForCourse(cid);
       dispatch(setAssignments(data));
+    } finally {
       setLoading(false);
-    };
-    load();
+    }
   }, [cid, dispatch]);
 
-  const handleDelete = async (id: string) => {
+  useEffect(() => {
+    loadAssignments();
+  }, [loadAssignments]);
+
+  const handleDelete = async (assignmentId: string) => {
     if (!window.confirm("Delete this assignment?")) return;
-    await client.deleteAssignment(id);
-    dispatch(deleteAssignment(id));
+    await client.deleteAssignment(assignmentId);
+    dispatch(deleteAssignmentAction(assignmentId));
   };
 
-  
+  const formatDate = (date: string) => {
+    if (!date) return "";
+    return new Date(date).toLocaleString();
+  };
+
+  if (loading) return <div>Loading assignments...</div>;
 
   return (
     <div id="wd-assignments">
@@ -70,29 +80,30 @@ export default function Assignments() {
             <div className="p-3 text-muted">No assignments found.</div>
           )}
 
-          {assignments.map((a: any) => (
-            <ListGroup className="rounded-0" key={a._id}>
+          {assignments.map((assignment: any) => (
+            <ListGroup className="rounded-0" key={assignment._id}>
               <ListGroupItem className="p-3 ps-1 d-flex align-items-start">
+
                 <BsGripVertical className="me-2 fs-3" />
                 <BsFileText className="text-success me-3 fs-4" />
 
                 <div className="flex-grow-1">
                   <Link
-                    href={`/Courses/${cid}/Assignments/${a._id}`}
+                    href={`/Courses/${cid}/Assignments/${assignment._id}`}
                     className="text-dark fw-bold"
                   >
-                    {a.title}
+                    {assignment.title}
                   </Link>
 
                   <div>
                     <span className="fw-bold">Due</span>{" "}
-                    {new Date(a.dueDate).toLocaleString()} | {a.points} pts
+                    {formatDate(assignment.dueDate)} | {assignment.points} pts
                   </div>
                 </div>
 
                 {currentUser?.role === "FACULTY" && (
                   <AssignmentControlButtons
-                    onDelete={() => handleDelete(a._id)}
+                    onDelete={() => handleDelete(assignment._id)}
                   />
                 )}
               </ListGroupItem>
