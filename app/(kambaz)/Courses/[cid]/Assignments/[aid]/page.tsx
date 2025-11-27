@@ -20,38 +20,44 @@ export default function AssignmentEditor() {
   const isNew = aid === "new";
   const existing = isNew ? null : assignments.find((a: any) => a._id === aid);
 
-  
-  const [title, setTitle] = useState(existing?.title ?? "");
-  const [description, setDescription] = useState(existing?.description ?? "");
-  const [points, setPoints] = useState(existing?.points ?? 0);
+  const [loaded, setLoaded] = useState(false);
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
+  const [points, setPoints] = useState(0);
   const [group, setGroup] = useState("Assignments");
   const [displayGradeAs, setDisplayGradeAs] = useState("Percentage");
   const [submissionType, setSubmissionType] = useState("Online");
-  const [releaseDate, setReleaseDate] = useState(existing?.releaseDate ?? "");
-  const [dueDate, setDueDate] = useState(existing?.dueDate ?? "");
-  const [availableUntil, setAvailableUntil] = useState(existing?.dueDate ?? "");
+  const [releaseDate, setReleaseDate] = useState("");
+  const [dueDate, setDueDate] = useState("");
+  const [availableUntil, setAvailableUntil] = useState("");
 
- 
   useEffect(() => {
-    const loadAssignment = async () => {
-      if (!isNew && !existing && aid) {
-        try {
-          const data = await findAssignmentById(aid as string);
-          setTitle(data.title ?? "");
-          setDescription(data.description ?? "");
-          setPoints(data.points ?? 0);
-          setReleaseDate(data.releaseDate ?? "");
-          setDueDate(data.dueDate ?? "");
-          setAvailableUntil(data.dueDate ?? "");
-        } catch (err) {
-          console.error("Error fetching assignment", err);
-        }
-      }
-    };
-    loadAssignment();
-  }, [aid, isNew, existing]);
+    const load = async () => {
+      let data = existing;
 
-  if (!isNew && !existing) return <p>Assignment not found</p>;
+      if (!isNew && !existing && aid) {
+        data = await findAssignmentById(aid as string);
+      }
+
+      if (data) {
+        setTitle(data.title ?? "");
+        setDescription(data.description ?? "");
+        setPoints(data.points ?? 0);
+        setGroup(data.group ?? "Assignments");
+        setDisplayGradeAs(data.displayGradeAs ?? "Percentage");
+        setSubmissionType(data.submissionType ?? "Online");
+        setReleaseDate(data.releaseDate ?? "");
+        setDueDate(data.dueDate ?? "");
+        setAvailableUntil(data.availableUntil ?? data.dueDate ?? "");
+      }
+
+      setLoaded(true);
+    };
+
+    load();
+  }, [aid, existing, isNew]);
+
+  if (!loaded) return null;
 
   const handleCancel = () => {
     router.push(`/Courses/${cid}/Assignments`);
@@ -71,22 +77,15 @@ export default function AssignmentEditor() {
       course: cid,
     };
 
-    try {
-      if (isNew) {
-        
-        const newAssignment = await createAssignmentForCourse(cid as string, payload);
-        dispatch(addAssignment(newAssignment)); 
-      } else {
-        
-        const updated = await updateAssignmentAPI({ ...existing, ...payload });
-        dispatch(updateAssignment(updated)); 
-      }
-
-      router.push(`/Courses/${cid}/Assignments`);
-    } catch (error: any) {
-      console.error("Error saving assignment:", error);
-      alert("Failed to save assignment. Check console for details.");
+    if (isNew) {
+      const newAssignment = await createAssignmentForCourse(cid as string, payload);
+      dispatch(addAssignment(newAssignment));
+    } else {
+      const updated = await updateAssignmentAPI({ ...existing, ...payload });
+      dispatch(updateAssignment(updated));
     }
+
+    router.push(`/Courses/${cid}/Assignments`);
   };
 
   return (
