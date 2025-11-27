@@ -25,8 +25,7 @@ export default function Assignments() {
   const dispatch = useDispatch();
   const router = useRouter();
   const currentUser = useSelector((state: any) => state.accountReducer.currentUser);
-  const allAssignments = useSelector((state: any) => state.assignmentsReducer.assignments);
-  const assignments = allAssignments.filter((a: any) => a.course === cid);
+  const assignments = useSelector((state: any) => state.assignmentsReducer.assignments);
   const [loading, setLoading] = useState(true);
 
   const loadAssignments = useCallback(async () => {
@@ -72,10 +71,7 @@ export default function Assignments() {
 
   return (
     <div id="wd-assignments">
-      <AssignmentControls
-        showFacultyButtons={currentUser?.role === "FACULTY"}
-        onCreate={handleCreate}
-      />
+      <AssignmentControls showFacultyButtons={currentUser?.role === "FACULTY"} />
       <ListGroup className="rounded-0 mt-4">
         <ListGroupItem className="p-0 mb-5 fs-5 border-secondary">
           <div className="wd-title p-3 ps-2 bg-secondary d-flex align-items-center">
@@ -99,31 +95,33 @@ export default function Assignments() {
             <div className="p-3 text-muted">No assignments found.</div>
           )}
 
-          {assignments.map((assignment: any) => (
-            <ListGroup className="rounded-0" key={assignment._id}>
-              <ListGroupItem className="p-3 ps-1 d-flex align-items-start">
-                <BsGripVertical className="me-2 fs-3" />
-                <BsFileText className="text-success me-3 fs-4" />
-                <div className="flex-grow-1">
-                  <Link
-                    href={`/Courses/${cid}/Assignments/${assignment._id}`}
-                    className="text-dark fw-bold"
-                  >
-                    {assignment.title}
-                  </Link>
-                  <div>
-                    <span className="fw-bold">Due</span> {formatDate(assignment.dueDate)} |{" "}
-                    {assignment.points} pts
+          {assignments
+            .filter((a: any) => a.course === cid)
+            .map((assignment: any) => (
+              <ListGroup className="rounded-0" key={assignment._id}>
+                <ListGroupItem className="p-3 ps-1 d-flex align-items-start">
+                  <BsGripVertical className="me-2 fs-3" />
+                  <BsFileText className="text-success me-3 fs-4" />
+                  <div className="flex-grow-1">
+                    <Link
+                      href={`/Courses/${cid}/Assignments/${assignment._id}`}
+                      className="text-dark fw-bold"
+                    >
+                      {assignment.title}
+                    </Link>
+                    <div>
+                      <span className="fw-bold">Due</span>{" "}
+                      {formatDate(assignment.dueDate)} | {assignment.points} pts
+                    </div>
                   </div>
-                </div>
-                {currentUser?.role === "FACULTY" && (
-                  <AssignmentControlButtons
-                    onDelete={() => handleDelete(assignment._id)}
-                  />
-                )}
-              </ListGroupItem>
-            </ListGroup>
-          ))}
+                  {currentUser?.role === "FACULTY" && (
+                    <AssignmentControlButtons
+                      onDelete={() => handleDelete(assignment._id)}
+                    />
+                  )}
+                </ListGroupItem>
+              </ListGroup>
+            ))}
         </ListGroupItem>
       </ListGroup>
     </div>
