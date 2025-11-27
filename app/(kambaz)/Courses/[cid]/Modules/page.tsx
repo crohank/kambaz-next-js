@@ -45,17 +45,21 @@ export default function Modules() {
   };
 
   const onRemoveModule = async (moduleId: string) => {
-    await client.deleteModule(cid, moduleId);
-    dispatch(setModules(modules.filter((m: any) => m._id !== moduleId)));
-  };
+  if (!cid) return;
+  await client.deleteModule(cid, moduleId);
+  dispatch(setModules(modules.filter((m: any) => m._id !== moduleId)));
+};
 
-  const onUpdateModule = async (module: any) => {
-    await client.updateModule(cid, module);
-    const newModules = modules.map((m: any) =>
-      m._id === module._id ? module : m
-    );
-    dispatch(setModules(newModules));
-  };
+
+  const onUpdateModule = async (m: any) => {
+  if (!cid) return;
+  await client.updateModule(cid, m);
+  const newModules = modules.map((mod: any) =>
+    mod._id === m._id ? m : mod
+  );
+  dispatch(setModules(newModules));
+};
+
 
   return (
     <div className="wd-modules">
