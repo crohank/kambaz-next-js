@@ -40,7 +40,9 @@ interface RootState {
 }
 
 export default function Dashboard() {
-  const { currentUser } = useSelector((state: RootState) => state.accountReducer);
+  const { currentUser } = useSelector(
+    (state: RootState) => state.accountReducer
+  );
   const router = useRouter();
 
   const [courses, setCourses] = useState<Course[]>([]);
@@ -53,17 +55,23 @@ export default function Dashboard() {
     description: "New Description",
   });
 
+  // const fetchCourses = useCallback(async () => {
+  //   if (!currentUser) return;
+  //   let data =
+  //     currentUser.role === "FACULTY"
+  //       ? await client.findMyCourses()
+  //       : await client.fetchAllCourses();
+  //   if (currentUser.role === "FACULTY" && data.length === 0) {
+  //     data = await client.fetchAllCourses();
+  //   }
+  //   setCourses(data);
+  // }, [currentUser]);
+
   const fetchCourses = useCallback(async () => {
-    if (!currentUser) return;
-    let data =
-      currentUser.role === "FACULTY"
-        ? await client.findMyCourses()
-        : await client.fetchAllCourses();
-    if (currentUser.role === "FACULTY" && data.length === 0) {
-      data = await client.fetchAllCourses();
-    }
-    setCourses(data);
-  }, [currentUser]);
+  if (!currentUser) return;
+  const data = await client.fetchAllCourses();
+  setCourses(data);
+}, [currentUser]);
 
   const fetchEnrollments = useCallback(async () => {
     if (!currentUser) return;
@@ -132,9 +140,7 @@ export default function Dashboard() {
       ? courses
       : showAll
       ? courses
-      : courses.filter((c) =>
-          enrollments.some((e) => e.course === c._id)
-        );
+      : courses.filter((c) => enrollments.some((e) => e.course === c._id));
 
   return (
     <div id="wd-dashboard">
@@ -199,7 +205,11 @@ export default function Dashboard() {
           const isEnrolled = enrollments.some((e) => e.course === c._id);
 
           return (
-            <Col key={c._id} className="wd-dashboard-course" style={{ width: "300px" }}>
+            <Col
+              key={c._id}
+              className="wd-dashboard-course"
+              style={{ width: "300px" }}
+            >
               <Card>
                 <Link
                   href={`/Courses/${c._id}/Home`}
