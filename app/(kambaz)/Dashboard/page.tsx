@@ -55,23 +55,19 @@ export default function Dashboard() {
     description: "New Description",
   });
 
-  // const fetchCourses = useCallback(async () => {
-  //   if (!currentUser) return;
-  //   let data =
-  //     currentUser.role === "FACULTY"
-  //       ? await client.findMyCourses()
-  //       : await client.fetchAllCourses();
-  //   if (currentUser.role === "FACULTY" && data.length === 0) {
-  //     data = await client.fetchAllCourses();
-  //   }
-  //   setCourses(data);
-  // }, [currentUser]);
-
   const fetchCourses = useCallback(async () => {
-  if (!currentUser) return;
-  const data = await client.fetchAllCourses();
-  setCourses(data);
-}, [currentUser]);
+    if (!currentUser) return;
+    let data =
+      currentUser.role === "FACULTY"
+        ? await client.findMyCourses()
+        : await client.fetchAllCourses();
+    if (currentUser.role === "FACULTY" && data.length === 0) {
+      data = await client.fetchAllCourses();
+    }
+    setCourses(data);
+  }, [currentUser]);
+
+  
 
   const fetchEnrollments = useCallback(async () => {
     if (!currentUser) return;
