@@ -57,22 +57,17 @@ export default function Dashboard() {
 
   const fetchCourses = useCallback(async () => {
     if (!currentUser) return;
-    let data = [];
-
-    try {
-      data =
-        currentUser.role === "FACULTY"
-          ? await client.findMyCourses()
-          : await client.fetchAllCourses();
-    } catch (e) {
-      data = await client.fetchAllCourses();
-    }
-
+    let data =
+      currentUser.role === "FACULTY"
+        ? await client.findMyCourses()
+        : await client.fetchAllCourses();
     if (currentUser.role === "FACULTY" && data.length === 0) {
       data = await client.fetchAllCourses();
     }
     setCourses(data);
   }, [currentUser]);
+
+  
 
   const fetchEnrollments = useCallback(async () => {
     if (!currentUser) return;
@@ -97,10 +92,8 @@ export default function Dashboard() {
   };
 
   const onUpdateCourse = async () => {
-    const updatedCourse = await client.updateCourse(course);
-    setCourses(
-      courses.map((c) => (c._id === updatedCourse._id ? updatedCourse : c))
-    );
+    await client.updateCourse(course);
+    await fetchCourses();
   };
 
   const onDeleteCourse = async (courseId: string) => {
